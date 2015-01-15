@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    fail "Invalid param" if not %w{created_at updated_at pushed_at}.include?(params[:sort_by])
+    fail "Invalid param" if !params[:sort_by].nil? && !%w{created_at updated_at pushed_at}.include?(params[:sort_by])
 
     @projects = Project.all.sort_by do |project|
       project.github_repo_data[params[:sort_by] || 'created_at'] || '999999999'
