@@ -25,8 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim'
 
-gem 'neo4j', path: '/Users/brian/github/neo4jrb/neo4j'
-gem 'neo4j-core', path: '/Users/brian/github/neo4jrb/neo4j-core'
+gem 'neo4j'
+gem 'neo4j-core'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,28 +1,3 @@
-PATH
-  remote: /Users/brian/github/neo4jrb/neo4j
-  specs:
-    neo4j (4.1.0)
-      active_attr (~> 0.8)
-      activemodel (~> 4)
-      activesupport (~> 4)
-      neo4j-core (~> 4.0.0)
-      orm_adapter (~> 0.5.0)
-      railties (~> 4)
-
-PATH
-  remote: /Users/brian/github/neo4jrb/neo4j-core
-  specs:
-    neo4j-core (4.0.0)
-      activesupport
-      faraday (~> 0.9.0)
-      faraday_middleware (~> 0.9.1)
-      httparty
-      httpclient
-      json
-      net-http-persistent
-      os
-      zip
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -114,6 +89,23 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    neo4j (4.1.0)
+      active_attr (~> 0.8)
+      activemodel (~> 4)
+      activesupport (~> 4)
+      neo4j-core (~> 4.0.0)
+      orm_adapter (~> 0.5.0)
+      railties (~> 4)
+    neo4j-core (4.0.0)
+      activesupport
+      faraday (~> 0.9.0)
+      faraday_middleware (~> 0.9.1)
+      httparty
+      httpclient
+      json
+      net-http-persistent
+      os
+      zip
     net-http-persistent (2.9.4)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -205,8 +197,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  neo4j!
-  neo4j-core!
+  neo4j
+  neo4j-core
   rails (= 4.2.0)
   rails_12factor
   sass-rails (~> 5.0)
