@@ -1,3 +1,4 @@
+require 'active_model'
 class Project
   PROJECT_REPO_CSV_URI = 'https://docs.google.com/a/neotechnology.com/spreadsheets/d/1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk/export?format=csv&id=1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk&gid=0'
 
