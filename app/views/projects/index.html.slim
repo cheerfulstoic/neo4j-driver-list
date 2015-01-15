@@ -1,0 +1,40 @@
+table.table.table-striped.table-bordered.table-hover
+  tr
+    - Project.header.each do |column|
+      th = column
+    th = link_to 'Created', sort_by: :created_at
+    th Commit History
+    th Commits mean / median
+    th = link_to 'Last Pushed', sort_by: :pushed_at
+    th = link_to 'Last Updated', sort_by: :updated_at
+
+  - @projects.each do |project|
+    tr
+      - Project.normalized_header.each do |attribute|
+        td
+          - value = project.send(attribute)
+          - case attribute
+          - when 'e_mail'
+            = link_to project.e_mail, "mailto:#{project.e_mail}"
+          - when 'driver_site', 'link_on_neo4j_com'
+            = link_to value, value if value.present?
+          - when 'github'
+            = link_to "#{project.userorg}/#{project.repo}", "http://github.com/#{project.userorg}/#{project.repo}"
+          - else
+            = value
+
+      td style="white-space: nowrap" = project.github_repo_data['created_at']
+
+      - commits = project.github_repo_commit_activity_stats.map {|row| row['days'].sum }
+      td
+        .sparkline data-commits="#{commits.join(',')}"
+
+      td
+        - if commits.size > 0
+          = (commits.sum.to_f / commits.size).round(1)
+          |  / 
+          = commits.sort[commits.size / 2]
+
+      td style="white-space: nowrap" = project.github_repo_data['pushed_at']
+      td style="white-space: nowrap" = project.github_repo_data['updated_at']
+
