@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'slim'
 gem 'pg'
+gem 'redis-activesupport'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
