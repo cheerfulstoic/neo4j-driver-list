@@ -1,7 +1,7 @@
 table.table.table-striped.table-bordered.table-hover
   tr
-    - Project.header.each do |column|
-      th = column
+    - Project.header.each do |property|
+      th = property.to_s.humanize
     th = link_to 'Created', sort_by: :created_at
     th Commit History
     th Commits mean / median
@@ -14,6 +14,8 @@ table.table.table-striped.table-bordered.table-hover
         td
           - value = project.send(attribute)
           - case attribute
+          - when 'driver'
+            = link_to model_path(model: :Project, id: project.id)
           - when 'e_mail'
             = link_to project.e_mail, "mailto:#{project.e_mail}"
           - when 'driver_site', 'link_on_neo4j_com'
