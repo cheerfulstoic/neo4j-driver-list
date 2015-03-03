@@ -1,3 +1,5 @@
+ruby "2.2.0"
+
 source 'https://rubygems.org'
 
 
@@ -24,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim'
 gem 'pg'
 gem 'redis-activesupport'
+
+gem 'neo4j'
+gem 'neo4j-meta_model'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
