@@ -1,8 +1,7 @@
 require 'active_model'
 class Project
+  include Neo4j::ActiveNode
   PROJECT_REPO_CSV_URI = 'https://docs.google.com/a/neotechnology.com/spreadsheets/d/1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk/export?format=csv&id=1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk&gid=0'
-
-  include ActiveModel::Model
 
   def self.source_data
     require 'csv'
@@ -26,11 +25,9 @@ class Project
   end
 
   def github_breakdown
-    return @github_breakdown if @github_breakdown
-
     if github
       match = github.match(/^([^\/]+)\/([^\/]+)\/?$/)
-      @github_breakdown = match && match[1,2]
+      match && match[1,2]
     end
   end
 
@@ -67,13 +64,13 @@ class Project
     (([0] * expected_weeks) + counts)[-expected_weeks..-1]
   end
 
-  normalized_header.each do |name|
-    attr_accessor name
-  end
+#  normalized_header.each do |name|
+#    attr_accessor name
+#  end
 
-  def self.all
-    source_data[1..-1].map do |row|
-      self.new(Hash[*normalized_header.zip(row).flatten])
-    end
-  end
+#  def self.all
+#    source_data[1..-1].map do |row|
+#      self.new(Hash[*normalized_header.zip(row).flatten])
+#    end
+#  end
 end
