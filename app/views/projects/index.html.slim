@@ -15,7 +15,7 @@ table.table.table-striped.table-bordered.table-hover
           - value = project.send(attribute)
           - case attribute
           - when 'driver'
-            = link_to model_path(model: :Project, id: project.id)
+            = link_to project.driver, "/admin/projects/#{project.id}"
           - when 'e_mail'
             = link_to project.e_mail, "mailto:#{project.e_mail}"
           - when 'driver_site', 'link_on_neo4j_com'
