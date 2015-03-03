@@ -1,6 +1,19 @@
 require 'active_model'
 class Project
   include Neo4j::ActiveNode
+
+  property :link_on_neo4j_com
+  property :github
+  property :driver_site
+  property :mailing_list
+  property :last_comit
+  property :notes
+  property :contacted
+  property :e_mail
+  property :authors
+  property :driver
+  property :language
+
   PROJECT_REPO_CSV_URI = 'https://docs.google.com/a/neotechnology.com/spreadsheets/d/1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk/export?format=csv&id=1HWOGc3yBbHq4paLrN4oTOa7IJZjxM5DmrX4pS3MKllk&gid=0'
 
   def self.source_data
