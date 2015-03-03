@@ -28,7 +28,7 @@ gem 'pg'
 gem 'redis-activesupport'
 
 gem 'neo4j'
-gem 'neo4j-meta_model'
+gem 'neo4j-meta_model', '~> 0.3.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
